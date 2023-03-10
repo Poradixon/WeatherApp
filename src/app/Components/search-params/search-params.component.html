@@ -1,0 +1,46 @@
+<div class="main-container">
+    <div class="info">
+        <h3>To see the weather you need to choose city from the list</h3>
+    </div>
+    <div class="search-params">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <label>
+              Choose city:
+              <select formControlName="city">
+                <option value="">Choose city</option>
+                <option value="Warsaw">Warsaw</option>
+                <option value="Prague">Prague</option>
+                <!-- zmienic value z miast na koordynaty jakie dostane z API, wtedy nie bede musial ich zmieniac
+                tylko od razu wezme sobie value i to value podstawie do zapytania API -->
+              </select>
+            </label>
+          
+            <label>
+              Pick the time range
+              <input type="date" formControlName="startDate" [max]="today" [min]="minDate" required>
+              <input type="date" formControlName="endDate" [max]="today" [min]="minDate" required>
+            </label>
+          
+            <label>
+              What whould you like to see?
+              <div>
+                <label>
+                  <input type="checkbox" class="temperature-checkbox" formControlName="temperature">Temperature
+                </label>
+                <label>
+                  <input type="checkbox" class="precipitation-checkbox" formControlName="precipitation">Precipitation Sum
+                </label>
+                <label>
+                  <input type="checkbox" class="sunset-checkbox" formControlName="sunset">Sunrise
+                </label>
+                <label>
+                  <input type="checkbox" class="sunrise-checkbox" formControlName="sunrise">Sunset
+                </label>
+              </div>
+            </label>
+          
+            <button type="submit">Wyślij</button>
+          </form>
+          
+    </div>
+</div>
